@@ -1,0 +1,325 @@
+/* ==========================================================================
+   ГЛОБАЛЬНЫЕ НАСТРОЙКИ СТИЛЕЙ
+   ========================================================================== */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0b0e11;
+    color: #e1e7ed;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   ФИКСИРОВАННАЯ ШАПКА И ГОРИЗОНТАЛЬНОЕ МЕНЮ
+   ========================================================================== */
+.main-header {
+    background-color: #12161c;
+    border-bottom: 1px solid #222933;
+    padding: 30px 0 20px 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 2.2rem;
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
+/* Навигационная панель - в один горизонтальный ряд */
+.main-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.main-nav a {
+    color: #8b97a5;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    border: 1px solid #222933;
+    border-radius: 4px;
+    background-color: #161b22;
+    transition: all 0.2s ease-in-out;
+}
+
+.main-nav a:hover {
+    color: #ffffff;
+    background-color: #21262d;
+    border-color: #30363d;
+}
+
+.subtitle {
+    color: #8b949e;
+    font-size: 1rem;
+    font-style: italic;
+}
+
+/* ==========================================================================
+   ВВОДНЫЙ ТЕКСТОВЫЙ БЛОК
+   ========================================================================== */
+.intro-section {
+    padding-top: 40px;
+}
+
+.intro-card {
+    background-color: #161b22;
+    border: 1px solid #222933;
+    border-radius: 6px;
+    padding: 30px;
+}
+
+.intro-card p {
+    margin-bottom: 15px;
+    color: #c9d1d9;
+    font-size: 1rem;
+}
+
+.intro-features {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #222933;
+}
+
+.intro-features h4 {
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.intro-features ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.intro-features li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 12px;
+    color: #8b949e;
+    font-size: 0.95rem;
+}
+
+.intro-features li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: #58a6ff;
+}
+
+.intro-footer {
+    font-weight: 500;
+    color: #ffffff !important;
+    margin-top: 20px;
+}
+
+/* Кот в блоке интро */
+.intro-features img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 4px;
+    border: 1px solid #222933;
+}
+
+/* ==========================================================================
+   СЕКЦИИ ЖАНРОВ И СЕТКА КАРТОЧЕК
+   ========================================================================== */
+.genre-section {
+    padding: 60px 0 20px 0;
+}
+
+.genre-header {
+    border-bottom: 1px solid #222933;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+.genre-header h2 {
+    font-size: 1.8rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.genre-desc {
+    color: #8b949e;
+    font-size: 0.95rem;
+    max-width: 900px;
+}
+
+/* Список карточек исполнителей */
+.artists-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 30px;
+}
+
+/* ==========================================================================
+   СТРОГОЕ СООТВЕТСТВИЕ МАКЕТУ: КАРТИНКА СЛЕВА, КОНТЕНТ СПРАВА
+   ========================================================================== */
+.artist-card {
+    background-color: #161b22;
+    border: 1px solid #222933;
+    border-radius: 6px;
+    padding: 25px;
+    display: flex;             /* Выстраивание элементов по горизонтали */
+    flex-direction: row;       /* Картинка слева, контент справа */
+    align-items: flex-start;   /* Выравнивание по верхнему краю */
+    gap: 25px;                 /* Отступ между изображением и текстом */
+}
+
+/* Левый блок: под фото артиста */
+.artist-img-block {
+    flex-shrink: 0;            /* Запрещаем изображению деформироваться */
+    width: 140px;              /* Стандартный пропорциональный размер макета */
+    height: 140px;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid #30363d;
+    background-color: #0d1117; /* Фон на случай прозрачности картинки */
+}
+
+.artist-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;       /* Картинка полностью помещается в блок и НЕ ОБРЕЗАЕТСЯ */
+}
+
+/* Правый блок: Название, Описание, Список Альбомов */
+.artist-info-block {
+    flex-grow: 1;              /* Заполняет всю ширину контейнера */
+    display: flex;
+    flex-direction: column;    /* Внутренние тексты идут сверху вниз */
+}
+
+.artist-info-block h3 {
+    font-size: 1.4rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.artist-info-block p {
+    color: #c9d1d9;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+/* ==========================================================================
+   ОБНОВЛЁННЫЙ БЛОК АЛЬБОМОВ С ОБЛОЖКАМИ
+   ========================================================================== */
+.albums-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: auto;          /* Автоматическое прижатие к низу информационной зоны */
+}
+
+/* Контейнер отдельного альбома (обложка + подпись под ней) */
+.album-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    width: 110px;              /* Стандартная фиксированная ширина для выравнивания */
+}
+
+/* Стили для картинок обложек альбомов */
+.album-cover {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;       /* Обложка альбома вписывается без обрезки */
+    border-radius: 4px;
+    border: 1px solid #30363d;
+    background-color: #0d1117;
+}
+
+/* Текстовая плашка под обложкой */
+.album-tag {
+    color: #58a6ff;
+    font-size: 0.8rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+/* Лейаут для одиночной центрированной карточки (Linkin Park) */
+.single-layout {
+    grid-column: 1 / -1;
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* ==========================================================================
+   ПОДВАЛ САЙТА И ИНТЕРАКТИВ
+   ========================================================================== */
+.main-footer {
+    background-color: #0d1117;
+    border-top: 1px solid #222933;
+    padding: 30px 0;
+    margin-top: 80px;
+}
+
+.footer-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-box p {
+    color: #8b949e;
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   АДАПТИВНОСТЬ ПОД МОБИЛЬНЫЕ СМАРТФОНЫ
+   ========================================================================== */
+@media (max-width: 768px) {
+    .artists-list {
+        grid-template-columns: 1fr;
+    }
+    .footer-box {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 540px) {
+    .artist-card {
+        flex-direction: column; /* Перенос фото наверх только на узких телефонах */
+        align-items: center;
+        text-align: center;
+    }
+    .artist-img-block {
+        width: 100%;
+        max-width: 160px;
+        height: 160px;
+    }
+    .albums-container {
+        justify-content: center;
+    }
+}
